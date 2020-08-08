@@ -8,23 +8,42 @@ export default class MagicZone extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
-  get src() {
-    return this.getAttribute('src');
-  }
-  
-  set src(newValue) {
-    this.setAttribute('src', newValue);
-  }
-
   async render() {
     const { shadowRoot } = this;
+    shadowRoot.innerHTML = '';
     const elements = await this.renderEngine.createElments(this.src);
-    shadowRoot.appendChild(elements)
+
+    if (elements) {
+      shadowRoot.appendChild(elements)
+    } else {
+      const template = this.template().content.cloneNode(true)
+      const button = template.querySelector('button');
+      button.onclick = this.render.bind(this);
+      shadowRoot.appendChild(template);
+    }
   }
 
   connectedCallback() {
     if (this.src) {
       this.render();
     }
+  }
+
+  template() {
+    const template = document.createElement('template');
+    template.innerHTML = `
+      <p>Oops, Something Went Wrong</p>
+      <button id="tryAgain">Try Again</button>
+    `;
+
+    return template;
+  }
+
+  get src() {
+    return this.getAttribute('src');
+  }
+  
+  set src(newValue) {
+    this.setAttribute('src', newValue);
   }
 }

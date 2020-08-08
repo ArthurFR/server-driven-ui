@@ -1,4 +1,6 @@
-export default class ContainerElement extends HTMLElement {
+import styles from './card.element.scss';
+
+export default class CardElement extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -19,6 +21,7 @@ export default class ContainerElement extends HTMLElement {
   template() {
     const template = document.createElement('template');
     template.innerHTML = `
+      <style>${styles.toString()}</style>
       <div id="container"></div>
     `;
 
