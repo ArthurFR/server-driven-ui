@@ -19,8 +19,7 @@ export default class MagicZone extends HTMLElement {
   async render() {
     const { shadowRoot } = this;
     const elements = await this.renderEngine.createElments(this.src);
-    const text = document.createTextNode(JSON.stringify(elements));
-    shadowRoot.appendChild(text)
+    shadowRoot.appendChild(elements)
   }
 
   connectedCallback() {
