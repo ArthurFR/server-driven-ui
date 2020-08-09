@@ -1,4 +1,3 @@
-import fetchAsync from '../../utils/fetch.js';
 import RenderEngine from '../../utils/render-engine.js';
 
 export default class MagicZone extends HTMLElement {
@@ -14,12 +13,9 @@ export default class MagicZone extends HTMLElement {
     const elements = await this.renderEngine.createElments(this.src);
 
     if (elements) {
-      shadowRoot.appendChild(elements)
+      shadowRoot.appendChild(elements);
     } else {
-      const template = this.template().content.cloneNode(true)
-      const button = template.querySelector('button');
-      button.onclick = this.render.bind(this);
-      shadowRoot.appendChild(template);
+      this.renderError(shadowRoot);
     }
   }
 
@@ -27,6 +23,13 @@ export default class MagicZone extends HTMLElement {
     if (this.src) {
       this.render();
     }
+  }
+
+  renderError(shadowRoot) {
+    const template = this.template().content.cloneNode(true);
+    const button = template.querySelector('button');
+    button.onclick = this.render.bind(this);
+    shadowRoot.appendChild(template);
   }
 
   template() {
