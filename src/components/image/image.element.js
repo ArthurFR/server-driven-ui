@@ -30,6 +30,11 @@ export default class ImageElement extends HTMLElement {
     return template;
   }
 
+  element() {
+    const element = this.shadowRoot.querySelector('img');
+    return element;
+  }
+
   get url() {
     return this.getAttribute('url');
   }

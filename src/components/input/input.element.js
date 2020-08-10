@@ -29,6 +29,11 @@ export default class InputElement extends HTMLElement {
     return template;
   }
 
+  element() {
+    const element = this.shadowRoot.querySelector('input');
+    return element;
+  }
+
   get value() {
     return this.getAttribute('value');
   }

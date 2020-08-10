@@ -20,6 +20,11 @@ export default class TextElement extends HTMLElement {
       shadowRoot.innerHTML = '';
       shadowRoot.appendChild(this.template().content.cloneNode(true));
     }
+
+    element() {
+      const element = this.shadowRoot.querySelector('p');
+      return element;
+    }
   
     template() {
       const template = document.createElement('template');

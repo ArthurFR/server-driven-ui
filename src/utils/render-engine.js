@@ -16,13 +16,14 @@ export default class RenderEngine {
     }
   }
 
-  generateElement({type, children, ...attributes}) {
+  generateElement({type, children, styles, ...attributes}) {
     const elementType = COMPONENTS_MAP[type];
     let element = null;
 
     if (elementType) {
       element = document.createElement(COMPONENTS_MAP[type]);
       this.setAttributes(element, attributes);
+      this.setStyles(element, styles);
       this.createChildrenElements(element, children);
     } else {
       element = document.createTextNode('');
@@ -35,6 +36,14 @@ export default class RenderEngine {
     Object.entries(attributes).forEach(([key, value]) => {
       element.setAttribute(key, value);    
     });
+  }
+
+  setStyles(element, styles) {
+    if (styles) {
+      styles.forEach(style => {
+        element.element().style[style.attribute] = style.value;
+      });
+    }
   }
 
   createChildrenElements(element, children) {

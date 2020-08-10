@@ -16,6 +16,11 @@ export default class ContainerElement extends HTMLElement {
     return container;
   }
 
+  element() {
+    const element = this.shadowRoot.querySelector('#container');
+    return element;
+  }
+
   template() {
     const template = document.createElement('template');
     template.innerHTML = `

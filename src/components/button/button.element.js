@@ -29,6 +29,11 @@ export default class ButtonElement extends HTMLElement {
     return template;
   }
 
+  element() {
+    const element = this.shadowRoot.querySelector('button');
+    return element;
+  }
+
   get value() {
     return this.getAttribute('value');
   }
