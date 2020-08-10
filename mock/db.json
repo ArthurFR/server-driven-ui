@@ -1,0 +1,66 @@
+{
+    "index": {
+        "type":"container",
+        "children":[
+            {
+                "type":"card",
+                "children":[
+                    {
+                        "type":"image",
+                        "url":"https://www.petlove.com.br/images/breeds/193436/profile/original/beagle-p.jpg",
+                        "description":"Minha imagem"
+                    },
+                    {
+                        "type":"text",
+                        "value" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices elit sed est fringilla tincidunt. Nunc sit amet od​",
+                        "styles": [
+                            {
+                                "attribute": "color",
+                                "value": "blue"
+                            },
+                            {
+                                "attribute": "font-size",
+                                "value": "18px"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type":"input",
+                "value":"18",
+                "id":"age"
+            },
+            {
+                "type":"button",
+                "value":"Submit​",
+                "styles": [
+                    {
+                        "attribute": "color",
+                        "value": "white"
+                    },
+                    {
+                        "attribute": "background-color",
+                        "value": "#231f20"
+                    },
+                    {
+                        "attribute": "border",
+                        "value": "0px"
+                    },
+                    {
+                        "attribute": "height",
+                        "value": "30px"
+                    },
+                    {
+                        "attribute": "width",
+                        "value": "100px"
+                    },
+                    {
+                        "attribute": "cursor",
+                        "value": "pointer"
+                    }
+                ]
+            }
+        ]
+    }
+}
